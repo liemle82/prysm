@@ -25,7 +25,7 @@ function color() {
     printf '\033[%sm%s\033[0m\n' "$@"
 }
 
-color "31" "hi liem"
+color "31;5" "hi liem"
 
 # `readlink -f` that works on OSX too.
 function get_realpath() {
@@ -95,12 +95,14 @@ esac
 readonly system
 
 if [ "$system" == "windows" ]; then
+    color "31" "liem here 1.1"
     arch="amd64.exe"
 elif [[ "$os_arch_suffix" == *"arm64"* ]]; then
     arch="arm64"
 fi
 
 if [[ "$arch" == "armv7l" ]]; then
+    color "31" "liem here 1.2"
     color "31" "32-bit ARM is not supported. Please install a 64-bit operating system."
     exit 1
 fi
@@ -174,14 +176,17 @@ get_prysm_version
 color "37" "Latest Prysm version is $prysm_version."
 
 if [ "${USE_PRYSM_MODERN:=false}" = "true" ]; then
+    color "31" "liem here 2.1"
     BEACON_CHAIN_REAL="${wrapper_dir}/beacon-chain-${prysm_version}-modern-${system}-${arch}"
 else
+    color "31" "liem here 2.2"
     BEACON_CHAIN_REAL="${wrapper_dir}/beacon-chain-${prysm_version}-${system}-${arch}"
 fi
 VALIDATOR_REAL="${wrapper_dir}/validator-${prysm_version}-${system}-${arch}"
 CLIENT_STATS_REAL="${wrapper_dir}/client-stats-${prysm_version}-${system}-${arch}"
 
 if [[ $1 == beacon-chain ]]; then
+    color "31" "liem here 3.1"
     if [[ ! -x $BEACON_CHAIN_REAL ]]; then
         color "34" "Downloading beacon chain@${prysm_version} to ${BEACON_CHAIN_REAL} (${reason})"
         if [ "${USE_PRYSM_MODERN}" = "true" ]; then
@@ -203,6 +208,7 @@ if [[ $1 == beacon-chain ]]; then
 fi
 
 if [[ $1 == validator ]]; then
+    color "31" "liem here 3.2"
     if [[ ! -x $VALIDATOR_REAL ]]; then
         color "34" "Downloading validator@${prysm_version} to ${VALIDATOR_REAL} (${reason})"
 
