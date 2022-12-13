@@ -25,6 +25,8 @@ function color() {
     printf '\033[%sm%s\033[0m\n' "$@"
 }
 
+color "31" "hi liem"
+
 # `readlink -f` that works on OSX too.
 function get_realpath() {
     if [ "$(uname -s)" == "Darwin" ]; then
