@@ -242,7 +242,7 @@ func startNode(ctx *cli.Context) error {
 	// Set libp2p logger to only panic logs for the info level.
 	golog.SetAllLoggers(golog.LevelPanic)
 
-	fmt.Println("heyyyyyy liem 3")
+	fmt.Println("heyyyyyy liem 3 - ")
 
 	if level == logrus.DebugLevel {
 		// Set libp2p logger to error logs for the debug level.
