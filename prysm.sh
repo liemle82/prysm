@@ -194,7 +194,7 @@ if [[ $1 == beacon-chain ]]; then
         else
             file=beacon-chain-${prysm_version}-${system}-${arch}
         fi
-        color "31" "liem downloading ", "https://prysmaticlabs.com/releases/",${file}
+        color "31" "liem downloading " + "https://prysmaticlabs.com/releases/" + ${file}
         res=$(curl -w '%{http_code}\n' -f -L "https://prysmaticlabs.com/releases/${file}"  -o "$BEACON_CHAIN_REAL" | ( grep 404 || true ) )
         if [[ $res == 404 ]];then
             echo "No prysm beacon chain found for ${prysm_version},(${file}) exit"
