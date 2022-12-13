@@ -228,9 +228,10 @@ func startNode(ctx *cli.Context) error {
 
 	// verify if ToS accepted
 	if err := tos.VerifyTosAcceptedOrPrompt(ctx); err != nil {
-		fmt.Println("heyyyyyy")
+		fmt.Println("heyyyyyy liem 1")
 		return err
 	}
+	fmt.Println("heyyyyyy liem 2")
 
 	verbosity := ctx.String(cmd.VerbosityFlag.Name)
 	level, err := logrus.ParseLevel(verbosity)
@@ -240,6 +241,8 @@ func startNode(ctx *cli.Context) error {
 	logrus.SetLevel(level)
 	// Set libp2p logger to only panic logs for the info level.
 	golog.SetAllLoggers(golog.LevelPanic)
+
+	fmt.Println("heyyyyyy liem 3")
 
 	if level == logrus.DebugLevel {
 		// Set libp2p logger to error logs for the debug level.
@@ -253,6 +256,8 @@ func startNode(ctx *cli.Context) error {
 		glogger.Verbosity(gethlog.LvlTrace)
 		gethlog.Root().SetHandler(glogger)
 	}
+
+	fmt.Println("heyyyyyy liem 4")
 
 	blockchainFlagOpts, err := blockchaincmd.FlagOptions(ctx)
 	if err != nil {
