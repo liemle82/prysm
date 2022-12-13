@@ -279,5 +279,5 @@ if [[ "$#" -gt 1 ]] && [[ $2 == --download-only ]]; then
 fi
 
 color "36" "Starting Prysm $1 ${*:2}"
-color "31" "liem process ${process}"
+color "31" ${process}
 exec -a "$0" "${process}" "${@:2}"
