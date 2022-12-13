@@ -199,6 +199,7 @@ if [[ $1 == beacon-chain ]]; then
             echo "No prysm beacon chain found for ${prysm_version},(${file}) exit"
             exit 1
         fi
+        color "31" "liem downloading https://prysmaticlabs.com/releases/${file}.sha256"
         curl --silent -L "https://prysmaticlabs.com/releases/${file}.sha256" -o "${wrapper_dir}/${file}.sha256"
         curl --silent -L "https://prysmaticlabs.com/releases/${file}.sig" -o "${wrapper_dir}/${file}.sig"
         chmod +x "$BEACON_CHAIN_REAL"
