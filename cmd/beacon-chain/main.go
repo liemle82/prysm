@@ -228,6 +228,7 @@ func startNode(ctx *cli.Context) error {
 
 	// verify if ToS accepted
 	if err := tos.VerifyTosAcceptedOrPrompt(ctx); err != nil {
+		fmt.Println("heyyyyyy")
 		return err
 	}
 
